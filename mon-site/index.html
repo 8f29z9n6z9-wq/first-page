@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Mohamed | Thermos de Qualit&eacute;</title>
+  <title> Thermos N&deg;1 au Maroc | Livraison 24/48h</title>
   <style>
     :root {
       --color-bg: #f3f4f6;
@@ -65,15 +65,24 @@
     .float-wa span { font-size: 0.8rem; }
 
     .hero { position: relative; padding: 6rem 1rem 5rem; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(29,78,216,0.9) 0%, rgba(30,64,175,0.85) 100%); z-index: 0; }
-    .hero-bg { position: absolute; inset: 0; background: url('termo1.webp') center/cover no-repeat; opacity: 0.25; pointer-events: none; z-index: 0; filter: grayscale(0.3); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(29,78,216,0.92) 0%, rgba(30,64,175,0.88) 100%); z-index: 0; }
+    .hero-bg { position: absolute; inset: 0; background: url('termo1.webp') center/cover no-repeat; opacity: 0.2; pointer-events: none; z-index: 0; filter: grayscale(0.3); }
     .hero .container { position: relative; z-index: 2; text-align: center; color: #fff; max-width: 800px; }
-    .hero-kicker { display: inline-block; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 1rem; opacity: 0.9; }
+    .hero-kicker { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 1rem; opacity: 0.95; }
+    .hero-kicker span { width: 8px; height: 8px; background: #fff; border-radius: 50%; }
     .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -0.04em; }
-    .hero p { font-size: clamp(1rem, 2vw, 1.25rem); color: rgba(255,255,255,0.9); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .hero p { font-size: clamp(1rem, 2vw, 1.25rem); color: rgba(255,255,255,0.95); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
     .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .btn-white { background: #fff; color: var(--color-primary); }
     .btn-white:hover { background: #f3f4f6; transform: translateY(-2px); }
+
+    .trust-bar { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem 1rem; box-shadow: var(--color-shadow); margin-bottom: 4rem; }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+    .trust-item { display: flex; flex-direction: column; gap: 0.5rem; }
+    .trust-icon { font-size: 1.5rem; }
+    .trust-item strong { font-size: 0.95rem; font-weight: 800; color: var(--color-primary); }
+    .trust-item span { font-size: 0.8rem; color: var(--color-text-secondary); font-weight: 600; }
+    @media (max-width: 640px) { .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
 
     .stats { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.5rem 1rem; margin-bottom: 4rem; box-shadow: var(--color-shadow); }
     .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; text-align: center; border-right: 1px solid var(--color-border); }
@@ -142,32 +151,41 @@
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="container">
-      <div class="hero-kicker">Nouvelle Collection</div>
-      <h1>Thermos premium qui garde la temp&eacute;rature</h1>
-      <p>D&eacute;couvrez nos thermos haute qualit&eacute; con&ccedil;us pour durer. Paiement s&eacute;curis&eacute; et livraison rapide partout au Maroc.</p>
+      <div class="hero-kicker"><span></span>Livraison confirm&eacute;e sous 24h</div>
+      <h1>Le Thermos N&deg;1 au Maroc<br><span style="color:var(--color-accent);">Garde votre boisson 12h chaud / 24h froid</span></h1>
+      <p>Commandez en un clic sur WhatsApp et recevez votre thermos chez vous avec paiement \u00e0 la livraison. Satisfait ou rembours\u00e9.</p>
       <div class="hero-actions">
         <a href="produits.html" class="btn btn-primary btn-white">Voir les produits</a>
-        <a href="https://wa.me/212719300005?text=Salam%20bghit%20plus%20dinfos" class="btn btn-wa" target="_blank">Commander sur WhatsApp</a>
+        <a href="https://wa.me/212719300005?text=Salam%20bghit%20commander%20un%20thermos" class="btn btn-wa" target="_blank">Commander sur WhatsApp</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
+      <div class="trust-bar">
+        <div class="trust-grid">
+          <div class="trust-item"><div class="trust-icon">&#10003;</div><strong>Livraison 24/48h</div><span>Partout au Maroc</span></div>
+          <div class="trust-item"><div class="trust-icon">&#128176;</div><strong>Paiement \u00e0 la livraison</div><span>Esp\u00e8ce \u00e0 la r\u00e9ception</span></div>
+          <div class="trust-item"><div class="trust-icon">&#128204;</div><strong>Taux de confirmation</div><span>99% des commandes</span></div>
+          <div class="trust-item"><div class="trust-icon">&#10004;</div><strong>Satisfait ou rembours\u00e9</div><span>Garantie 7 jours</span></div>
+        </div>
+      </div>
+
       <div class="stats">
         <div class="stats-grid">
-          <div class="stat"><div class="stat-num">2+</div><div class="stat-lbl">Produits</div></div>
+          <div class="stat"><div class="stat-num">10k+</div><div class="stat-lbl">Clients livr&eacute;s</div></div>
+          <div class="stat"><div class="stat-num">99%</div><div class="stat-lbl">Taux de confirmation</div></div>
           <div class="stat"><div class="stat-num">24/7</div><div class="stat-lbl">Commande WhatsApp</div></div>
-          <div class="stat"><div class="stat-num">DH</div><div class="stat-lbl">Prix locaux</div></div>
         </div>
       </div>
 
       <div class="featured">
         <div>
-          <span class="badge">&#10003; Produit phare</span>
-          <h2>Termos Premium</h2>
-          <div class="price">200 DH</div>
-          <p>Thermos haute qualit&eacute;, garde votre boisson chaude ou froide pendant des heures. Id&eacute;al pour le bureau, l'\u00e9cole ou les voyages.</p>
+          <span class="badge">&#10003; Produit vedette N&deg;1</span>
+          <h2>Termos Premium Maroc</h2>
+          <div class="price">200 DH seulement</div>
+          <p>Isolation haute performance, acier inoxydable, fuite z\u00e9ro. Le thermos le plus vendu au Maroc cette ann&eacute;e.</p>
           <a href="produits.html" class="btn btn-primary">Commander maintenant</a>
         </div>
         <div class="featured-img">
@@ -179,17 +197,17 @@
 
   <section class="section products-preview">
     <div class="container">
-      <div class="section-title">Nos Produits</div>
-      <div class="section-sub">S&electionnez le mod&egrave;le qui vous convient.</div>
+      <div class="section-title">Nos Produits Les Plus Vendus</div>
+      <div class="section-sub">Choisissez votre mod&egrave;le et commandez d\u2019imm\u00e9diatement.</div>
       <div class="product-grid">
         <article class="card">
           <div class="card-img"><img src="termo1.webp" alt="Termos 1"></div>
           <div class="card-body">
             <h3>Termos Wahda</h3>
             <div class="price">200 DH</div>
-            <p>Thermos haute qualit&eacute;, garde la temp&eacute;rature des heures.</p>
+            <p>Garde chaud 12h / froid 24h. Livraison confirm&eacute;e rapide.</p>
             <div class="card-actions">
-              <a href="https://wa.me/212719300005?text=bghit%20termossa%20wahda" class="btn btn-wa" target="_blank">Commander</a>
+              <a href="https://wa.me/212719300005?text=bghit%20termossa%20wahda" class="btn btn-wa" target="_blank">Commander via WhatsApp</a>
             </div>
           </div>
         </article>
@@ -198,9 +216,9 @@
           <div class="card-body">
             <h3>Lot de Deux</h3>
             <div class="price">500 DH</div>
-            <p>Lot de deux thermos premium, parfait pour la famille.</p>
+            <p>Pack famille &agrave; prix r\u00e9duit. Deux thermos premium.</p>
             <div class="card-actions">
-              <a href="https://wa.me/212719300005?text=bghit%20khod%20jouj%20talta%20fabour" class="btn btn-wa" target="_blank">Commander</a>
+              <a href="https://wa.me/212719300005?text=bghit%20khod%20jouj%20talta%20fabour" class="btn btn-wa" target="_blank">Commander via WhatsApp</a>
             </div>
           </div>
         </article>
@@ -210,9 +228,9 @@
 
   <section class="section cta-bar">
     <div class="container">
-      <h2>Pr&eacute;t \u00e0 commander ?</h2>
-      <p>Contactez-nous directement sur WhatsApp pour passer votre commande.</p>
-      <a href="https://wa.me/212719300005?text=Salam%20bghit%20commander" class="btn btn-white" target="_blank">Discuter sur WhatsApp</a>
+      <h2>Pr&eacute;t \u00e0 recevoir votre thermos ?</h2>
+      <p>Commandez maintenant sur WhatsApp, confirmation imm\u00e9diate, livraison chez vous sous 24/48h.</p>
+      <a href="https://wa.me/212719300005?text=Salam%20bghit%20commander%20un%20thermos" class="btn btn-white" target="_blank">Discuter sur WhatsApp</a>
     </div>
   </section>
 
@@ -220,7 +238,7 @@
     <div class="container footer-grid">
       <div>
         <h4>ME<span style="color:var(--color-accent)">SITE</span></h4>
-        <p>Thermos de qualit&eacute; &agrave; prix locaux.</p>
+        <p>Le N&deg;1 des thermos au Maroc. Livraison confirm&eacute;e, rapide et s\u00e9curis&eacute;e.</p>
       </div>
       <div>
         <h4>Liens rapides</h4>
@@ -235,7 +253,7 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>&copy; 2026 ME SITE. Tous droits r&eacute;serv&eacute;s.</p>
+      <p>&copy; 2026 ME SITE. N&deg;1 des thermos au Maroc. Tous droits r&eacute;serv&eacute;s.</p>
     </div>
   </footer>
 
