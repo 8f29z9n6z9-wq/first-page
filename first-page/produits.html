@@ -1,200 +1,614 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produits | Thermos N&deg;1 Maroc | Livraison 24/48h</title>
+  <meta name="description" content="Thermos isotherme inox premium au Maroc. Garde vos boissons chaudes jusqu'à 12h et froides jusqu'à 24h. Paiement à la livraison partout au Maroc.">
+  <title>Produits | Thermos Isotherme Maroc | ME SITE</title>
+  <link rel="canonical" href="https://first-page-lms7.netlify.app/produits.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --color-bg: #f3f4f6;
-      --color-surface: #ffffff;
-      --color-primary: #1d4ed8;
-      --color-primary-dark: #1e40af;
-      --color-accent: #f59e0b;
-      --color-success: #15803d;
-      --color-text: #111827;
-      --color-text-secondary: #6b7280;
-      --color-border: #e5e7eb;
-      --color-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.1);
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --color-primary: #142B27;
+      --color-secondary: #315B49;
+      --color-sage: #D8EDB8;
+      --color-cream: #F4F0E7;
+      --color-white: #FFFFFF;
+      --color-text: #252525;
+      --color-text-secondary: #777777;
+      --color-border: #E5E7EB;
+      --radius: 12px;
+      --shadow: 0 10px 30px -10px rgba(20, 43, 39, 0.08);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       --max-width: 1100px;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      background: var(--color-bg);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--color-cream);
       color: var(--color-text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; height: auto; display: block; border-radius: var(--radius-md); }
-    button { font-family: inherit; cursor: pointer; border: none; background: none; }
-
+    img { max-width: 100%; height: auto; display: block; }
+    button, input, select, textarea { font-family: inherit; }
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
     .section { padding: 5rem 1rem; }
-    .section-title { text-align: center; font-size: 2rem; font-weight: 800; color: var(--color-text); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
-    .section-sub { text-align: center; color: var(--color-text-secondary); margin-bottom: 3rem; font-size: 1.05rem; }
+    .section-title { text-align: center; font-size: 1.75rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .section-sub { text-align: center; color: var(--color-text-secondary); margin-bottom: 3rem; font-size: 1rem; }
 
-    header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .brand { font-size: 1.35rem; font-weight: 900; color: var(--color-primary); letter-spacing: -0.04em; }
-    .brand span { color: var(--color-accent); }
+    .announce { background: var(--color-primary); color: #fff; font-size: 0.85rem; padding: 0.55rem 1rem; text-align: center; letter-spacing: 0.02em; }
+
+    header { position: sticky; top: 0; z-index: 100; background: rgba(244, 240, 231, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); }
+    .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-size: 1.35rem; font-weight: 800; color: var(--color-primary); letter-spacing: -0.03em; }
+    .brand span { color: var(--color-secondary); }
     .nav-links { display: flex; gap: 1.75rem; align-items: center; }
-    .nav-links a { font-size: 0.95rem; font-weight: 600; color: var(--color-text-secondary); padding: 0.5rem 0; position: relative; transition: var(--transition); }
-    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--color-primary); transition: var(--transition); border-radius: 2px; }
-    .nav-links a:hover, .nav-links a.active { color: var(--color-primary); }
-    .nav-links a.active::after { width: 100%; }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a { font-size: 0.9rem; font-weight: 600; color: var(--color-text-secondary); transition: var(--transition); }
+    .nav-links a:hover { color: var(--color-primary); }
+    .nav-cta { background: var(--color-primary); color: #fff; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; border: none; cursor: pointer; transition: var(--transition); }
+    .nav-cta:hover { background: var(--color-secondary); }
+    .menu-toggle { display: none; background: none; border: none; color: var(--color-text); font-size: 1.4rem; cursor: pointer; }
 
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.4rem; border-radius: var(--radius-md); font-weight: 700; font-size: 0.95rem; transition: var(--transition); border: 1px solid transparent; width: 100%; justify-content: center; }
-    .btn-primary { background: var(--color-primary); color: #fff; box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25); }
-    .btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(29, 78, 216, 0.35); }
-    .btn-wa { background: var(--color-success); color: #fff; box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25); }
-    .btn-wa:hover { background: #166534; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(21, 128, 61, 0.35); }
-    .btn-outline { background: transparent; color: var(--color-text); border-color: var(--color-border); }
-    .btn-outline:hover { background: #f9fafb; border-color: var(--color-text-secondary); }
+    .hero { position: relative; padding: 5rem 1rem 5rem; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-secondary); margin-bottom: 1rem; display: block; }
+    .hero h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 1.25rem; color: var(--color-primary); }
+    .hero p { font-size: 1rem; color: var(--color-text-secondary); margin-bottom: 1.75rem; max-width: 480px; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--color-primary); color: #fff; padding: 0.9rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary:hover { background: var(--color-secondary); }
+    .btn-outline { background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); padding: 0.9rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-outline:hover { background: var(--color-primary); color: #fff; }
+    .price-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-white); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.6rem 1rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--color-primary); box-shadow: var(--shadow); }
+    .price-badge span:first-child { color: var(--color-text-secondary); font-weight: 500; font-size: 0.85rem; }
+    .hero-image { position: relative; }
+    .hero-image img { width: 100%; border-radius: var(--radius); border: 1px solid var(--color-border); box-shadow: var(--shadow); object-fit: cover; }
+    .hero-benefits { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .benefit-chip { font-size: 0.8rem; font-weight: 600; color: var(--color-secondary); background: rgba(49, 91, 73, 0.1); padding: 0.45rem 0.9rem; border-radius: 20px; border: 1px solid rgba(49, 91, 73, 0.2); }
+    .hero-trust { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .trust-pill { font-size: 0.8rem; font-weight: 600; color: var(--color-text-secondary); background: var(--color-white); border: 1px solid var(--color-border); padding: 0.5rem 1rem; border-radius: 20px; display: flex; align-items: center; gap: 0.5rem; }
 
-    .back { text-align: center; margin: 1.5rem 0 3rem; }
-    .back a { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--color-primary); font-weight: 600; font-size: 0.95rem; transition: var(--transition); }
-    .back a:hover { color: var(--color-primary-dark); gap: 0.8rem; }
+    .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.5rem 1rem; box-shadow: var(--shadow); }
+    .trust-item { text-align: center; }
+    .trust-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .trust-item strong { font-size: 0.85rem; font-weight: 800; color: var(--color-primary); display: block; }
+    .trust-item span { font-size: 0.72rem; color: var(--color-text-secondary); }
 
-    .urgency { background: #fef3c7; border: 1px solid var(--color-accent); border-radius: var(--radius-md); padding: 1rem 1.5rem; text-align: center; margin-bottom: 2rem; font-weight: 700; color: #92400e; font-size: 0.95rem; }
-    .urgency span { color: var(--color-accent); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .benefit-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); transition: var(--transition); }
+    .benefit-card:hover { border-color: var(--color-secondary); }
+    .benefit-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .benefit-card h3 { font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.5rem; }
+    .benefit-card p { font-size: 0.85rem; color: var(--color-text-secondary); }
 
-    .filters { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
-    .filter-pill { padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text-secondary); font-size: 0.85rem; font-weight: 600; transition: var(--transition); cursor: pointer; white-space: nowrap; }
-    .filter-pill:hover, .filter-pill.active { border-color: var(--color-primary); color: var(--color-primary); background: #eff6ff; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .gallery-item { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-border); background: #000; aspect-ratio: 1; cursor: pointer; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-label { position: absolute; bottom: 0.75rem; left: 0.75rem; font-size: 0.75rem; font-weight: 700; color: #fff; background: rgba(20, 43, 39, 0.7); padding: 0.25rem 0.6rem; border-radius: 4px; }
 
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
-    .card:hover { transform: translateY(-6px); box-shadow: var(--color-shadow); border-color: transparent; }
-    .card-img { height: 200px; background: #f1f5f9; position: relative; overflow: hidden; }
-    .card-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; transition: var(--transition); }
-    .card:hover .card-img img { transform: scale(1.05); }
-    .card-tag { position: absolute; top: 1rem; left: 1rem; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.6rem; border-radius: 4px; background: #fff; color: var(--color-primary); border: 1px solid var(--color-border); box-shadow: var(--color-shadow); }
-    .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
-    .card h3 { font-size: 1.05rem; font-weight: 700; color: var(--color-text); line-height: 1.4; }
-    .card .price { font-size: 1.3rem; font-weight: 900; color: var(--color-success); }
-    .card .old-price { font-size: 0.9rem; color: var(--color-text-secondary); text-decoration: line-through; margin-left: 0.5rem; }
-    .card p { font-size: 0.9rem; color: var(--color-text-secondary); flex: 1; }
-    .card-actions { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-top: auto; }
-    .card-actions .btn { font-size: 0.85rem; padding: 0.6rem; }
-    .delivery-badge { font-size: 0.75rem; font-weight: 700; color: var(--color-success); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+    .step { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+    .step-num { font-size: 1.5rem; font-weight: 800; color: var(--color-primary); }
+    .step h4 { font-size: 0.9rem; font-weight: 700; color: var(--color-text); }
+    .step p { font-size: 0.78rem; color: var(--color-text-secondary); }
+    .step-img { width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--color-border); background: var(--color-white); display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; font-size: 1.5rem; }
 
-    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; background: var(--color-surface); border-top: 1px solid var(--color-border); padding: 1rem 1.5rem; box-shadow: 0 -4px 20px rgba(0,0,0,0.06); z-index: 50; display: none; }
-    @media (max-width: 768px) { .sticky-cta { display: block; } }
-    .sticky-cta .row { display: flex; gap: 0.75rem; align-items: center; }
-    .sticky-cta .price { font-size: 1.1rem; font-weight: 800; color: var(--color-success); white-space: nowrap; }
-    .sticky-cta .btn { flex: 1; font-size: 0.9rem; padding: 0.75rem 1rem; }
+    .specs-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .specs-table th, .specs-table td { padding: 1rem 1.25rem; text-align: right; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; }
+    .specs-table th { background: var(--color-cream); font-weight: 800; color: var(--color-primary); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; width: 40%; }
+    .specs-table td { font-weight: 500; color: var(--color-text); }
+    .specs-table tr:last-child td, .specs-table tr:last-child th { border-bottom: none; }
+    .spec-pending { color: var(--color-text-secondary); font-style: italic; }
 
-    footer { background: var(--color-text); color: #fff; padding: 4rem 1rem 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .offers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .offer-card { background: var(--color-white); border: 2px solid var(--color-border); border-radius: var(--radius); padding: 2rem 1.5rem; text-align: center; transition: var(--transition); position: relative; }
+    .offer-card:hover { border-color: var(--color-secondary); transform: translateY(-2px); }
+    .offer-card.featured { border-color: var(--color-primary); background: var(--color-cream); }
+    .offer-badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; font-weight: 800; background: var(--color-primary); color: #fff; padding: 0.25rem 0.75rem; border-radius: 20px; }
+    .offer-name { font-size: 1.1rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem; }
+    .offer-qty { font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 1rem; }
+    .offer-price { font-size: 1.75rem; font-weight: 800; color: var(--color-text); margin-bottom: 0.25rem; }
+    .offer-unit { font-size: 0.85rem; color: var(--color-text-secondary); display: block; margin-bottom: 1rem; }
+    .offer-savings { font-size: 0.8rem; font-weight: 700; color: var(--color-secondary); margin-bottom: 1rem; }
+    .offer-cta { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; background: var(--color-primary); color: #fff; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: var(--transition); }
+    .offer-cta:hover { background: var(--color-secondary); }
+    .offer-pending { opacity: 0.6; pointer-events: none; }
+
+    .reviews-placeholder { text-align: center; padding: 3rem; color: var(--color-text-secondary); border: 1px dashed var(--color-border); border-radius: var(--radius); background: var(--color-white); }
+
+    .demo { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); text-align: center; }
+
+    .order-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+    .order-step { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+    .order-step-num { font-size: 1.5rem; font-weight: 800; color: var(--color-primary); }
+    .order-step h4 { font-size: 0.9rem; font-weight: 700; color: var(--color-text); }
+    .order-step p { font-size: 0.78rem; color: var(--color-text-secondary); }
+
+    .faq { max-width: 700px; margin: 0 auto; }
+    .faq-item { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius); margin-bottom: 0.75rem; overflow: hidden; }
+    .faq-question { padding: 1rem 1.25rem; font-weight: 700; color: var(--color-text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition); }
+    .faq-question:hover { background: var(--color-cream); }
+    .faq-answer { padding: 0 1.25rem; padding-bottom: 1rem; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; display: none; border-top: 1px solid var(--color-border); }
+    .faq-answer.open { display: block; }
+    .faq-toggle { font-size: 0.8rem; font-weight: 800; color: var(--color-secondary); }
+
+    .final-cta { background: var(--color-primary); color: #fff; border-radius: var(--radius); padding: 3rem 1.5rem; text-align: center; box-shadow: var(--shadow); }
+    .final-cta h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .final-cta p { color: rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem; font-size: 1rem; }
+
+    footer { background: var(--color-primary); color: #fff; padding: 4rem 1rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2.5rem; }
     .footer h4 { font-size: 1rem; font-weight: 800; margin-bottom: 1rem; color: #fff; }
-    .footer p, .footer a { font-size: 0.9rem; color: #cbd5e1; line-height: 1.8; }
-    .footer a:hover { color: var(--color-accent); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: #94a3b8; }
+    .footer p, .footer a { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); line-height: 1.8; }
+    .footer a:hover { color: var(--color-sage); }
+    .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); }
 
-    .menu-toggle { display: none; background: none; border: none; color: var(--color-text); font-size: 1.4rem; }
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; background: var(--color-white); border-top: 1px solid var(--color-border); padding: 1rem 1.5rem; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08); z-index: 50; display: none; }
+    @media (max-width: 768px) { .sticky-cta { display: block; } }
+    .sticky-cta .row { display: flex; gap: 0.75rem; align-items: center; }
+    .sticky-cta .price { font-size: 1.1rem; font-weight: 800; color: var(--color-primary); white-space: nowrap; }
+    .sticky-cta .btn { flex: 1; font-size: 0.9rem; padding: 0.75rem 1rem; }
+
+    .float-wa { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99; background: #128C7E; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 6px 20px rgba(18, 140, 126, 0.35); }
+
     @media (max-width: 768px) {
       .menu-toggle { display: block; }
-      .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-surface); flex-direction: column; padding: 1rem; border-bottom: 1px solid var(--color-border); box-shadow: var(--color-shadow); gap: 0; display: none; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-white); flex-direction: column; padding: 1rem; border-bottom: 1px solid var(--color-border); box-shadow: var(--shadow); gap: 0; display: none; }
       .nav-links.open { display: flex; }
       .nav-links a { padding: 0.85rem 1rem; border-bottom: 1px solid var(--color-border); width: 100%; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .trust-strip { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 1rem 1rem; }
+      .trust-strip .trust-item span { font-size: 0.68rem; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .steps, .order-steps { grid-template-columns: 1fr; gap: 1.5rem; }
+      .offers-grid { grid-template-columns: 1fr; }
+      .specs-table td, .specs-table th { text-align: right; padding: 0.85rem 1rem; }
     }
+
+    .wa-btn { background: #128C7E; color: #fff; }
+    .hidden { display: none !important; }
+
+    .success-overlay { position: fixed; inset: 0; background: rgba(20, 43, 39, 0.85); z-index: 1000; display: none; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; color: #fff; text-align: center; padding: 1rem; }
+    .success-overlay .check { font-size: 3rem; color: #34C759; }
   </style>
 </head>
 <body>
+
+  <div class="announce">Livraison partout au Maroc &bull; Paiement à la livraison</div>
+
   <header>
     <div class="container nav">
       <div class="brand">ME<span>SITE</span></div>
-      <nav class="nav-links">
+      <nav class="nav-links" id="navLinks">
         <a href="../index.html">Accueil</a>
-        <a href="../produits.html" class="active">Produits</a>
-        <a href="../men-ana.html">Men Ana</a>
+        <a href="../produits.html" class="active">Notre produit</a>
+        <a href="../men-ana.html">Avis clients</a>
         <a href="../paiement.html">Paiement</a>
-        <a href="#" class="btn btn-wa btn-outline" style="border-color:var(--color-success); color:var(--color-success);">WhatsApp</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <button class="nav-cta wa-btn" onclick="openWa('hero')">Commander maintenant</button>
+      <button class="menu-toggle" aria-label="Menu" onclick="toggleNav()">&#9776;</button>
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-title">Nos Produits Les Plus Vendus</div>
-      <div class="section-sub">Qualit&eacute; premium, livraison confirm&eacute;e sous 24/48h partout au Maroc.</div>
-
-      <div class="urgency"><strong>Promotion hasria :</strong> Livraison gratuite sur les commandes confirm&eacute;es aujourd\u2019hui.</div>
-
-      <div class="back"><a href="../index.html">&larr; Retour &agrave; l'accueil</a></div>
-
-      <div class="filters">
-        <button class="filter-pill active">Tous</button>
-        <button class="filter-pill">Thermos</button>
-        <button class="filter-pill">Promo</button>
+  <section class="hero" id="accueil">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-eyebrow">Notre produit phare</span>
+        <h1>Thermos isotherme inox &mdash; Garde chaud 12h, froid 24h.</h1>
+        <p>Acier inoxydable premium, antifuite et facile à transporter. Paiement à la livraison partout au Maroc.</p>
+        <div class="price-badge">
+          <span>À partir de</span>
+          <span id="heroPrice">200 MAD</span>
+        </div>
+        <div class="hero-actions">
+          <button class="btn-primary wa-btn" onclick="openWa('hero')">Commander maintenant</button>
+          <button class="btn-outline" onclick="document.getElementById('offres').scrollIntoView({behavior:'smooth'})">Découvrir les offres</button>
+        </div>
+        <div class="hero-benefits">
+          <span class="benefit-chip">Chaud 12h</span>
+          <span class="benefit-chip">Froid 24h</span>
+          <span class="benefit-chip">Inox</span>
+          <span class="benefit-chip">Antifuite</span>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-pill">&#128176; Paiement à la livraison</div>
+          <div class="trust-pill">🚚 Livraison selon votre ville</div>
+          <div class="trust-pill">&#9993; Service client WhatsApp</div>
+        </div>
       </div>
-
-      <div class="product-grid">
-        <article class="card">
-          <div class="card-img"><span class="card-tag">N&deg;1 Ventes</span><img src="../mon-site/termo1.webp" alt="Termos 1"></div>
-          <div class="card-body">
-            <div class="delivery-badge">&#10003; Livraison 24/48h confirm&eacute;e</div>
-            <h3>Termos Wahda</h3>
-            <div class="price">200 DH <span class="old-price">250 DH</span></div>
-            <p>Garde chaud 12h / froid 24h. Acier inoxydable, z\u00e9ro fuite. Paiement \u00e0 la livraison.</p>
-            <div class="card-actions">
-              <a href="https://wa.me/212719300005?text=bghit%20termossa%20wahda%20livraison%20rapide" class="btn btn-wa" target="_blank">Commander via WhatsApp</a>
-            </div>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-img"><span class="card-tag">Pack Famille</span><img src="../mon-site/termo2.webp" alt="Termos 2"></div>
-          <div class="card-body">
-            <div class="delivery-badge">&#10003; Livraison 24/48h confirm&eacute;e</div>
-            <h3>Lot de Deux</h3>
-            <div class="price">500 DH <span class="old-price">600 DH</span></div>
-            <p>Deux thermos premium. Id\u00e9al famille ou bureau. Paiement \u00e0 la r\u00e9ception.</p>
-            <div class="card-actions">
-              <a href="https://wa.me/212719300005?text=bghit%20khod%20jouj%20talta%20fabour%20livraison" class="btn btn-wa" target="_blank">Commander via WhatsApp</a>
-            </div>
-          </div>
-        </article>
+      <div class="hero-image">
+        <img src="../mon-site/termo1.webp" alt="Thermos isotherme inox premium">
       </div>
     </div>
   </section>
 
-  <div class="sticky-cta">
-    <div class="container row">
-      <span class="price">200 DH</span>
-      <a href="https://wa.me/212719300005?text=bghit%20commander%20thermos%20livraison" class="btn btn-wa" target="_blank">Commander sur WhatsApp</a>
+  <section class="section">
+    <div class="container">
+      <div class="trust-strip">
+        <div class="trust-item">
+          <div class="trust-icon">&#128176;</div>
+          <strong>Paiement à la livraison</div>
+          <span>Payez à la réception</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#128204;</div>
+          <strong>Commande simple</div>
+          <span>Via WhatsApp</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#9993;</div>
+          <strong>Assistance WhatsApp</div>
+          <span>0719300005</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#128205;</div>
+          <strong>Retour transparent</div>
+          <span>Politique claire</span>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="section" id="produit">
+    <div class="container">
+      <div class="section-title">Pensé pour accompagner votre quotidien.</div>
+      <div class="section-sub">Les avantages de votre thermos isotherme.</div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128294;</div>
+          <h3>Conservation de la chaleur</h3>
+          <p>Garde vos boissons chaudes jusqu'à 12 heures.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">&#127792;</div>
+          <h3>Conservation de la fraîcheur</h3>
+          <p>Garde vos boissons froides jusqu'à 24 heures.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128274;</div>
+          <h3>Design pratique et élégant</h3>
+          <p>Acier inoxydable, finition soignée.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128663;</div>
+          <h3>Facile à transporter</h3>
+          <p>Léger et adapté au quotidien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">Découvrez le produit.</div>
+      <div class="section-sub">Images réelles du thermos.</div>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openImg(this)">
+          <img src="../mon-site/termo1.webp" alt="Thermos principal">
+          <div class="gallery-label">Vue principale</div>
+        </div>
+        <div class="gallery-item" onclick="openImg(this)">
+          <img src="../mon-site/termo2.webp" alt="Thermos deuxième angle">
+          <div class="gallery-label">Deuxième angle</div>
+        </div>
+        <div class="gallery-item placeholder">
+          <div class="gallery-label">Côté</div>
+        </div>
+        <div class="gallery-item placeholder">
+          <div class="gallery-label">Bouchon</div>
+        </div>
+        <div class="gallery-item placeholder">
+          <div class="gallery-label">Intérieur</div>
+        </div>
+        <div class="gallery-item placeholder">
+          <div class="gallery-label">En main</div>
+        </div>
+      </div>
+      <p class="section-sub" style="margin-top:1rem; text-align:center;">Des images complémentaires (côté, bouchon, intérieur, en main) peuvent être ajoutées ici dès qu'elles sont disponibles.</p>
+    </div>
+  </section>
+
+  <section class="section" id="offres">
+    <div class="container">
+      <div class="section-title">Choisissez votre offre.</div>
+      <div class="section-sub">Sélectionnez la quantité adaptée à vos besoins.</div>
+      <div class="offers-grid">
+        <div class="offer-card featured">
+          <div class="offer-badge">Populaire</div>
+          <div class="offer-name">Offre A</div>
+          <div class="offer-qty">1 thermos</div>
+          <div class="offer-price">200 MAD</div>
+          <span class="offer-unit">200 MAD / unité</span>
+          <div class="offer-savings">Prix individuel</div>
+          <button class="offer-cta wa-btn" onclick="selectOffer('Offre A – 1 thermos', 1, '200 MAD')">Commander</button>
+        </div>
+        <div class="offer-card">
+          <div class="offer-name">Offre B</div>
+          <div class="offer-qty">2 thermoses</div>
+          <div class="offer-price">500 MAD</div>
+          <span class="offer-unit">250 MAD / unité</span>
+          <div class="offer-savings">—</div>
+          <button class="offer-cta wa-btn" onclick="selectOffer('Offre B – 2 thermoses', 2, '500 MAD')">Commander</button>
+        </div>
+        <div class="offer-card offer-pending">
+          <div class="offer-name">Offre C</div>
+          <div class="offer-qty">3 thermoses</div>
+          <div class="offer-price">Sur demande</div>
+          <span class="offer-unit">À confirmer</span>
+          <div class="offer-savings">—</div>
+          <button class="offer-cta" style="background:transparent; color:var(--color-text-secondary); border:1px solid var(--color-border);" onclick="alert('Le prix de l\'offre 3 thermoses est en attente de confirmation. Contactez-nous via WhatsApp.')">Me contacter</button>
+        </div>
+      </div>
+      <p class="section-sub" style="margin-top:1.5rem; text-align:center; font-size:0.85rem;">Les prix sont affichés en MAD. Paiement à la livraison. L'offre C est en attente de confirmation de prix.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--color-white);">
+    <div class="container">
+      <div class="section-title">Caractéristiques techniques.</div>
+      <div class="section-sub">Spécifications du thermos isotherme.</div>
+      <table class="specs-table">
+        <thead>
+          <tr><th>Caractéristique</th><th>Détail</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Type</th><td>Thermos isotherme</td></tr>
+          <tr><th>Matériau</th><td>Acier inoxydable</td></tr>
+          <tr><th>Chaleur</th><td>Jusqu'à 12 heures</td></tr>
+          <tr><th>Fraîcheur</th><td>Jusqu'à 24 heures</td></tr>
+          <tr><th>Étanchéité</th><td>Antifuite</td></tr>
+          <tr><th>Capacité</th><td><span class="spec-pending">À confirmer</span></td></tr>
+          <tr><th>Dimensions</th><td><span class="spec-pending">À confirmer</span></td></tr>
+          <tr><th>Poids</th><td><span class="spec-pending">À confirmer</span></td></tr>
+          <tr><th>Coloris</th><td><span class="spec-pending">À confirmer</span></td></tr>
+          <tr><th>Contenu du colis</th><td>1 thermos</td></tr>
+        </tbody>
+      </table>
+      <p class="section-sub" style="margin-top:1rem; text-align:center;">Certaines spécifications sont en attente de confirmation et pourront être mises à jour.</p>
+    </div>
+  </section>
+
+  <section class="section" id="avis">
+    <div class="container">
+      <div class="section-title">Ce que nos clients disent.</div>
+      <div class="section-sub">Témoignages et avis.</div>
+      <div class="reviews-placeholder">
+        <p>Aucun avis client publié pour le moment.</p>
+        <p>Cette section sera remplie avec de vrais témoignages dès qu'ils seront disponibles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">Découvrez votre thermos en action.</div>
+      <div class="section-sub">Démonstration du produit.</div>
+      <div class="demo">
+        <p>Aucune vidéo de démonstration disponible pour le moment.</p>
+        <p>Cette section pourra accueillir une vidéo présentant le thermos, son bouchon, sa taille et son usage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--color-white);">
+    <div class="container">
+      <div class="section-title">Commander en toute simplicité.</div>
+      <div class="section-sub">Passez votre commande en 4 étapes.</div>
+      <div class="order-steps">
+        <div class="order-step">
+          <div class="order-step-num">01</div>
+          <h4>Choisissez</h4>
+          <p>Sélectionnez votre offre.</p>
+        </div>
+        <div class="order-step">
+          <div class="order-step-num">02</div>
+          <h4>Contactez</h4>
+          <p>Envoyez votre commande sur WhatsApp.</p>
+        </div>
+        <div class="order-step">
+          <div class="order-step-num">03</div>
+          <h4>Confirmez</h4>
+          <p>Confirmez vos informations avec notre équipe.</p>
+        </div>
+        <div class="order-step">
+          <div class="order-step-num">04</div>
+          <h4>Recevez</h4>
+          <p>Recevez votre colis et payez à la livraison.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-title">Questions fréquentes.</div>
+      <div class="section-sub">Toutes les réponses avant de commander.</div>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Combien de temps le thermos conserve-t-il les boissons chaudes ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Jusqu'à 12 heures.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Combien de temps conserve-t-il les boissons froides ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Jusqu'à 24 heures.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Quelle est sa capacité ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">À confirmer.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Est-il étanche ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Le thermos est antifuite.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Quels sont les coloris disponibles ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">À confirmer.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Où livrez-vous ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Partout au Maroc, selon la couverture du service de livraison.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Quels sont les frais de livraison ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">À confirmer selon votre ville.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Quels sont les délais de livraison ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Selon votre ville et le service de livraison.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Comment fonctionne le paiement à la livraison ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Vous payez en espèces à la réception de votre colis.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Puis-je retourner le produit ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Politique de retour à confirmer avec notre équipe.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Comment nettoyer mon thermos ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">À la main, avec de l'eau et du savon doux.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Comment contacter le service client ? <span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Par WhatsApp au 0719300005.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="final-cta">
+        <h2>Prêt à profiter de votre thermos au quotidien ?</h2>
+        <p>Choisissez votre offre et passez votre commande en quelques instants.</p>
+        <div style="display:inline-flex; align-items:center; gap:1rem; margin-bottom:1.5rem;">
+          <span style="font-weight:700; color:var(--color-sage);">À partir de 200 MAD</span>
+          <span style="font-size:0.85rem; color:rgba(255,255,255,0.8);">• Paiement à la livraison</span>
+          <span style="font-size:0.85rem; color:rgba(255,255,255,0.8);">• Livraison partout au Maroc</span>
+        </div>
+        <button class="btn-primary wa-btn" style="padding:1rem 2rem; font-size:1rem;" onclick="openWa('final')">Commander maintenant sur WhatsApp</button>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="container footer-grid">
       <div>
-        <h4>ME<span style="color:var(--color-accent)">SITE</span></h4>
-        <p>Thermos N&deg;1 au Maroc. Livraison confirm&eacute;e, rapide et s\u00e9curis&eacute;e.</p>
+        <div class="brand" style="margin-bottom:0.75rem;">ME<span>SITE</span></div>
+        <p>Thermos isotherme inox premium au Maroc. Paiement à la livraison, livraison rapide.</p>
       </div>
       <div>
         <h4>Liens rapides</h4>
         <p><a href="../index.html">Accueil</a></p>
-        <p><a href="../produits.html">Produits</a></p>
-        <p><a href="../men-ana.html">Men Ana</a></p>
+        <p><a href="../produits.html">Notre produit</a></p>
+        <p><a href="../men-ana.html">Avis clients</a></p>
+        <p><a href="../paiement.html">Paiement</a></p>
+        <p><a href="#faq">FAQ</a></p>
+        <p><a href="#contact">Contact</a></p>
       </div>
       <div>
         <h4>Contact</h4>
-        <p><a href="https://wa.me/212719300005" target="_blank">WhatsApp: 0719300005</a></p>
+        <p><a href="https://wa.me/212719300005?text=Bonjour%20je%20souhaite%20plus%20d%27informations%20sur%20votre%20thermos." target="_blank">WhatsApp: 0719300005</a></p>
         <p>Maroc</p>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>&copy; 2026 ME SITE. N&deg;1 des thermos au Maroc. Tous droits r&eacute;serv&eacute;s.</p>
+      <p>&copy; 2026 ME SITE. Tous droits réservés.</p>
     </div>
   </footer>
+
+  <div class="sticky-cta">
+    <div class="container row">
+      <span class="price">À partir de 200 MAD</span>
+      <button class="btn wa-btn" onclick="openWa('sticky')">Commander sur WhatsApp</button>
+    </div>
+  </div>
+
+  <a href="https://wa.me/212719300005?text=Bonjour%20je%20souhaite%20commander%20un%20thermos." class="float-wa" target="_blank" aria-label="WhatsApp">&#9993;</a>
+
+  <div class="success-overlay" id="successOverlay">
+    <div class="check">&#10003;</div>
+    <div>Redirection vers WhatsApp&#8230;</div>
+  </div>
+
+  <script>
+    const CONFIG = {
+      businessName: 'ME SITE',
+      whatsapp: '212719300005',
+      price1: '200 MAD',
+      price2: '500 MAD',
+      price3: 'Sur demande',
+    };
+
+    function toggleNav() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('open');
+    }
+
+    function toggleFaq(el) {
+      const answer = el.nextElementSibling;
+      const toggle = el.querySelector('.faq-toggle');
+      const open = answer.classList.toggle('open');
+      toggle.textContent = open ? '−' : '+';
+      el.style.background = open ? 'var(--color-cream)' : 'var(--color-white)';
+    }
+
+    function openImg(el) {
+      if (el.classList.contains('placeholder')) {
+        alert('Cette image sera ajoutée prochainement.');
+        return;
+      }
+    }
+
+    let selectedOffer = { name: 'Offre A – 1 thermos', qty: 1, price: '200 MAD' };
+    function selectOffer(name, qty, price) {
+      selectedOffer = { name, qty, price };
+      document.getElementById('heroPrice').textContent = price;
+      document.querySelectorAll('.offer-card').forEach(c => c.classList.remove('featured'));
+      event.currentTarget.closest('.offer-card').classList.add('featured');
+    }
+
+    function buildMsg(context) {
+      const lines = [
+        'Bonjour, je souhaite commander votre thermos.',
+        '',
+        'Offre choisie : ' + selectedOffer.name,
+        'Quantité : ' + selectedOffer.qty,
+        'Couleur : À préciser',
+        'Prix : ' + selectedOffer.price,
+        'Nom complet :',
+        'Ville :',
+        'Adresse :',
+        'Téléphone :',
+        '',
+        'Merci.'
+      ];
+      return lines.join('%0A');
+    }
+
+    function openWa(context) {
+      const msg = buildMsg(context);
+      const url = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
+      document.getElementById('successOverlay').style.display = 'flex';
+      setTimeout(() => {
+        window.open(url, '_blank');
+        document.getElementById('successOverlay').style.display = 'none';
+      }, 600);
+    }
+
+    document.querySelector('.sticky-cta .btn').addEventListener('click', function() {
+      openWa('sticky');
+    });
+  </script>
 </body>
 </html>
+
