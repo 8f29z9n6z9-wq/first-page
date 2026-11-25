@@ -1,133 +1,190 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produits | Me Site Web</title>
+  <title>Produits | Mohamed Thermos</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --primary: #1e3a8a;
-      --accent: #f59e0b;
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #e5e7eb;
+      --color-bg: #f3f4f6;
+      --color-surface: #ffffff;
+      --color-primary: #1d4ed8;
+      --color-primary-dark: #1e40af;
+      --color-accent: #f59e0b;
+      --color-success: #15803d;
+      --color-text: #111827;
+      --color-text-secondary: #6b7280;
+      --color-border: #e5e7eb;
+      --color-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.1);
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-width: 1100px;
     }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
     a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; height: auto; display: block; }
+    img { max-width: 100%; height: auto; display: block; border-radius: var(--radius-md); }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-    header {
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .nav-wrap { max-width: 1024px; margin: 0 auto; padding: 1rem 1.5rem; }
-    .nav-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .brand { font-size: 1.25rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
-    .brand span { color: var(--accent); }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--muted); padding: 0.5rem 0; border-bottom: 2px solid transparent; transition: all 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--primary); border-bottom-color: var(--primary); }
-    .btn-wa { background: #25d366; color: #fff; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 6px rgba(37,211,102,0.25); transition: transform 0.15s, background 0.2s; }
-    .btn-wa:hover { background: #1fb355; transform: translateY(-1px); }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 5rem 1rem; }
+    .section-title { text-align: center; font-size: 2rem; font-weight: 800; color: var(--color-text); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .section-sub { text-align: center; color: var(--color-text-secondary); margin-bottom: 3rem; font-size: 1.05rem; }
 
-    .section { padding: 3rem 1.5rem; }
-    .container { max-width: 1024px; margin: 0 auto; }
-    .section-title { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; color: var(--primary); }
-    .section-sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .brand { font-size: 1.35rem; font-weight: 900; color: var(--color-primary); letter-spacing: -0.04em; }
+    .brand span { color: var(--color-accent); }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { font-size: 0.95rem; font-weight: 600; color: var(--color-text-secondary); padding: 0.5rem 0; position: relative; transition: var(--transition); }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--color-primary); transition: var(--transition); border-radius: 2px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-primary); }
+    .nav-links a.active::after { width: 100%; }
+    .nav-links a:hover::after { width: 100%; }
 
-    .card { background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
-    .card-img { height: 200px; background: #f1f5f9; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
-    .card-img img { width: 100%; height: 100%; object-fit: cover; }
-    .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
-    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); }
-    .card .price { font-size: 1.25rem; font-weight: 800; color: #15803d; margin-bottom: 1rem; }
-    .card .desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; flex: 1; }
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.25rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; transition: transform 0.15s, background 0.2s; border: none; cursor: pointer; width: 100%; justify-content: center; }
-    .btn-wa-card { background: #25d366; color: #fff; box-shadow: 0 4px 6px rgba(37,211,102,0.25); }
-    .btn-wa-card:hover { background: #1fb355; transform: translateY(-1px); }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.4rem; border-radius: var(--radius-md); font-weight: 700; font-size: 0.95rem; transition: var(--transition); border: 1px solid transparent; width: 100%; justify-content: center; }
+    .btn-primary { background: var(--color-primary); color: #fff; box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25); }
+    .btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(29, 78, 216, 0.35); }
+    .btn-wa { background: var(--color-success); color: #fff; box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25); }
+    .btn-wa:hover { background: #166534; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(21, 128, 61, 0.35); }
+    .btn-outline { background: transparent; color: var(--color-text); border-color: var(--color-border); }
+    .btn-outline:hover { background: #f9fafb; border-color: var(--color-text-secondary); }
 
-    .back { text-align: center; margin: 1.5rem 0; }
-    .back a { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+    .back { text-align: center; margin: 1.5rem 0 3rem; }
+    .back a { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--color-primary); font-weight: 600; font-size: 0.95rem; transition: var(--transition); }
+    .back a:hover { color: var(--color-primary-dark); gap: 0.8rem; }
 
-    footer { background: #111827; color: #e5e7eb; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid #1f2937; }
-    footer p { font-size: 0.9rem; color: #9ca3af; }
+    .filters { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .filter-pill { padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text-secondary); font-size: 0.85rem; font-weight: 600; transition: var(--transition); cursor: pointer; white-space: nowrap; }
+    .filter-pill:hover, .filter-pill.active { border-color: var(--color-primary); color: var(--color-primary); background: #eff6ff; }
 
-    .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--color-shadow); border-color: transparent; }
+    .card-img { height: 200px; background: #f1f5f9; position: relative; overflow: hidden; }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; transition: var(--transition); }
+    .card:hover .card-img img { transform: scale(1.05); }
+    .card-tag { position: absolute; top: 1rem; left: 1rem; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.6rem; border-radius: 4px; background: #fff; color: var(--color-primary); border: 1px solid var(--color-border); box-shadow: var(--color-shadow); }
+    .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+    .card h3 { font-size: 1.05rem; font-weight: 700; color: var(--color-text); line-height: 1.4; }
+    .card .price { font-size: 1.3rem; font-weight: 900; color: var(--color-success); }
+    .card p { font-size: 0.9rem; color: var(--color-text-secondary); flex: 1; }
+    .card-actions { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-top: auto; }
+    .card-actions .btn { font-size: 0.85rem; padding: 0.6rem; }
+
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; background: var(--color-surface); border-top: 1px solid var(--color-border); padding: 1rem 1.5rem; box-shadow: 0 -4px 20px rgba(0,0,0,0.06); z-index: 50; display: none; }
+    @media (max-width: 768px) { .sticky-cta { display: block; } }
+    .sticky-cta .row { display: flex; gap: 0.75rem; align-items: center; }
+    .sticky-cta .price { font-size: 1.1rem; font-weight: 800; color: var(--color-success); white-space: nowrap; }
+    .sticky-cta .btn { flex: 1; font-size: 0.9rem; padding: 0.75rem 1rem; }
+
+    footer { background: var(--color-text); color: #fff; padding: 4rem 1rem 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2.5rem; }
+    .footer h4 { font-size: 1rem; font-weight: 800; margin-bottom: 1rem; color: #fff; }
+    .footer p, .footer a { font-size: 0.9rem; color: #cbd5e1; line-height: 1.8; }
+    .footer a:hover { color: var(--color-accent); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: #94a3b8; }
+
+    .menu-toggle { display: none; background: none; border: none; color: var(--color-text); font-size: 1.4rem; }
     @media (max-width: 768px) {
       .menu-toggle { display: block; }
-      .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--card); flex-direction: column; padding: 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); gap: 0; display: none; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-surface); flex-direction: column; padding: 1rem; border-bottom: 1px solid var(--color-border); box-shadow: var(--color-shadow); gap: 0; display: none; }
       .nav-links.open { display: flex; }
-      .nav-links a { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); width: 100%; }
+      .nav-links a { padding: 0.85rem 1rem; border-bottom: 1px solid var(--color-border); width: 100%; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="nav-wrap">
-      <div class="nav-top">
-        <div class="brand">ME<span>SITE</span></div>
-        <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-        <nav class="nav-links">
-          <a href="index.html">Accueil</a>
-          <a href="produits.html" class="active">Produits</a>
-          <a href="men-ana.html">Men Ana</a>
-          <a class="btn-wa" href="https://wa.me/212719300005?text=Salam%20bghit%20commander" target="_blank">WhatsApp</a>
-        </nav>
-      </div>
+    <div class="container nav">
+      <div class="brand">ME<span>SITE</span></div>
+      <nav class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html" class="active">Produits</a>
+        <a href="men-ana.html">Men Ana</a>
+        <a href="#" class="btn btn-wa btn-outline" style="border-color:var(--color-success); color:var(--color-success);">WhatsApp</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
     </div>
   </header>
 
   <section class="section">
     <div class="container">
       <div class="section-title">Nos Produits</div>
-      <div class="section-sub">D&eacute;couvrez notre s&election de thermos de qualit&eacute; &agrave; prix locaux.</div>
+      <div class="section-sub">S&electionnez le mod&egrave;le qui vous convient le mieux.</div>
 
-      <div class="grid">
+      <div class="back"><a href="index.html">&larr; Retour &agrave; l'accueil</a></div>
+
+      <div class="filters">
+        <button class="filter-pill active">Tous</button>
+        <button class="filter-pill">Thermos</button>
+        <button class="filter-pill">Promo</button>
+      </div>
+
+      <div class="product-grid">
         <article class="card">
-          <div class="card-img">
-            <img src="termo1.webp" alt="Termos 1">
-          </div>
+          <div class="card-img"><span class="card-tag">Populaire</span><img src="termo1.webp" alt="Termos 1"></div>
           <div class="card-body">
             <h3>Termos Wahda</h3>
             <div class="price">200 DH</div>
-            <p class="desc">Thermos haute qualit&eacute;, garde votre boisson chaude ou froide pendant des heures.</p>
-            <a href="https://wa.me/212719300005?text=bghit%20termossa%20wahda" class="btn btn-wa-card" target="_blank">Commander via WhatsApp</a>
+            <p>Thermos haute qualit&eacute;, garde votre boisson chaude ou froide pendant des heures.</p>
+            <div class="card-actions">
+              <a href="https://wa.me/212719300005?text=bghit%20termossa%20wahda" class="btn btn-wa" target="_blank">Commander</a>
+            </div>
           </div>
         </article>
-
         <article class="card">
-          <div class="card-img">
-            <img src="termo2.webp" alt="Termos 2">
-          </div>
+          <div class="card-img"><span class="card-tag">Lot</span><img src="termo2.webp" alt="Termos 2"></div>
           <div class="card-body">
-            <h3>Khod Jouj Otalta Fabour</h3>
+            <h3>Lot de Deux</h3>
             <div class="price">500 DH</div>
-            <p class="desc">Lot de deux thermos premium, parfait pour la famille ou le bureau.</p>
-            <a href="https://wa.me/212719300005?text=bghit%20khod%20jouj%20talta%20fabour" class="btn btn-wa-card" target="_blank">Commander via WhatsApp</a>
+            <p>Lot de deux thermos premium, parfait pour la famille ou le bureau.</p>
+            <div class="card-actions">
+              <a href="https://wa.me/212719300005?text=bghit%20khod%20jouj%20talta%20fabour" class="btn btn-wa" target="_blank">Commander</a>
+            </div>
           </div>
         </article>
       </div>
-
-      <div class="back"><a href="index.html">&larr; Retour &agrave; l'accueil</a></div>
     </div>
   </section>
 
+  <div class="sticky-cta">
+    <div class="container row">
+      <span class="price">200 DH</span>
+      <a href="https://wa.me/212719300005?text=bghit%20commander" class="btn btn-wa" target="_blank">Commander sur WhatsApp</a>
+    </div>
+  </div>
+
   <footer>
-    <p>&copy; 2026 Me Site Web. Tous droits r&eacute;serv&eacute;s.</p>
+    <div class="container footer-grid">
+      <div>
+        <h4>ME<span style="color:var(--color-accent)">SITE</span></h4>
+        <p>Thermos de qualit&eacute; &agrave; prix locaux.</p>
+      </div>
+      <div>
+        <h4>Liens rapides</h4>
+        <p><a href="index.html">Accueil</a></p>
+        <p><a href="produits.html">Produits</a></p>
+        <p><a href="men-ana.html">Men Ana</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="https://wa.me/212719300005" target="_blank">WhatsApp: 0719300005</a></p>
+        <p>Maroc</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 ME SITE. Tous droits r&eacute;serv&eacute;s.</p>
+    </div>
   </footer>
 </body>
 </html>
