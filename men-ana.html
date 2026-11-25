@@ -1,15 +1,107 @@
 <!DOCTYPE html>
-<html>
-    <titlt>men ana</titlt>
-    <style>
-        body { background-color:lightyellow; text-align: center; }
-        h1 { color:darkgreen; }
-    </style>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Men Ana | Me Site Web</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #1e3a8a;
+      --accent: #f59e0b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .nav-wrap { max-width: 1024px; margin: 0 auto; padding: 1rem 1.5rem; }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .brand { font-size: 1.25rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--muted); padding: 0.5rem 0; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); border-bottom-color: var(--primary); }
+    .btn-wa { background: #25d366; color: #fff; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 6px rgba(37,211,102,0.25); }
+    .btn-wa:hover { background: #1fb355; }
+
+    .section { padding: 3rem 1.5rem; }
+    .container { max-width: 700px; margin: 0 auto; }
+    .section-title { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; color: var(--primary); }
+    .section-sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
+    .about { background: var(--card); border-radius: 16px; padding: 2rem; border: 1px solid var(--border); }
+    .about h2 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary); }
+    .about p { color: var(--text); margin-bottom: 1rem; font-size: 1.05rem; }
+    .about .highlight { color: var(--accent); font-weight: 700; }
+
+    .cta { text-align: center; margin-top: 2rem; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 1rem; background: var(--primary); color: #fff; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; }
+    .btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+    footer { background: #111827; color: #e5e7eb; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid #1f2937; }
+    footer p { font-size: 0.9rem; color: #9ca3af; }
+
+    .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--card); flex-direction: column; padding: 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); gap: 0; display: none; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); width: 100%; }
+    }
+  </style>
 </head>
 <body>
-    <a href="men-ana.html">Men ana</a>
-    <h1>man ana </h1>
-    <p> promotion hasria rja3 lpage lawla okliki ela produits ochof .</p>
-    <a href="index.html"> click ela produits </a>
+  <header>
+    <div class="nav-wrap">
+      <div class="nav-top">
+        <div class="brand">ME<span>SITE</span></div>
+        <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <nav class="nav-links">
+          <a href="index.html">Accueil</a>
+          <a href="produits.html">Produits</a>
+          <a href="men-ana.html" class="active">Men Ana</a>
+          <a class="btn-wa" href="https://wa.me/212719300005?text=Salam%20bghit%20plus%20dinfos" target="_blank">WhatsApp</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">Men Ana</div>
+      <div class="section-sub">En savoir plus sur moi et ce site.</div>
+
+      <div class="about">
+        <h2>Qui suis-je ?</h2>
+        <p>Je m'appelle Mohamed, et j'ai cr&eacute;e ce site pour pr&eacute;senter mes produits en thermos.</p>
+        <p>Apprenti d&e9veloppeur web, je m'amuse &agrave; cr&e9er des pages simples et fonctionnelles pour promouvoir mon activit&eacute;.</p>
+        <p><span class="highlight">Promotion hasria :</span> rendez-vous sur la page produits et commandez via WhatsApp.</p>
+      </div>
+
+      <div class="cta">
+        <a href="produits.html" class="btn">Voir les produits</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Me Site Web. Tous droits r&eacute;serv&eacute;s.</p>
+  </footer>
 </body>
 </html>

@@ -1,29 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-  <title>me site web</title>
-<style>
-  body { background-color:lightblue; text-align: center; }
-  h1 { color:darkblue; }
-  p { font-size: 24px; }
-  
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Me Site Web | Accueil</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #1e3a8a;
+      --primary-hover: #1e40af;
+      --accent: #f59e0b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Header / Nav */
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .nav-wrap { max-width: 1024px; margin: 0 auto; padding: 1rem 1.5rem; }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .brand { font-size: 1.25rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--muted); padding: 0.5rem 0; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); border-bottom-color: var(--primary); }
+    .btn-wa { background: #25d366; color: #fff; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 6px rgba(37,211,102,0.25); transition: transform 0.15s, background 0.2s; }
+    .btn-wa:hover { background: #1fb355; transform: translateY(-1px); }
+
+    /* Hero */
+    .hero { background: linear-gradient(135deg, var(--primary) 0%, #2563eb 60%, #3b82f6 100%); color: #fff; padding: 5rem 1.5rem 6rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: url('mon-site/termo1.webp') center/cover no-repeat; opacity: 0.18; pointer-events: none; z-index: 0; }
+    .hero > * { position: relative; z-index: 1; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -1px; }
+    .hero p { font-size: clamp(1rem, 2vw, 1.25rem); color: #dbeafe; max-width: 640px; margin: 0 auto 1.75rem; }
+    .hero .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 1rem; transition: transform 0.15s, box-shadow 0.2s, background 0.2s; border: none; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 6px rgba(245,158,11,0.3); }
+    .btn-primary:hover { background: #d97706; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(245,158,11,0.4); }
+    .btn-outline { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .btn-outline:hover { background: rgba(255,255,255,0.25); }
+
+    /* Sections */
+    .section { padding: 3rem 1.5rem; }
+    .container { max-width: 1024px; margin: 0 auto; }
+    .section-title { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; color: var(--primary); }
+    .section-sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+
+    /* Featured card */
+    .featured { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; background: var(--card); border-radius: 16px; padding: 2rem; border: 1px solid var(--border); }
+    .featured img { width: 100%; height: 260px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
+    .featured h2 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--primary); }
+    .featured .price { font-size: 1.35rem; font-weight: 700; color: #15803d; margin-bottom: 1rem; }
+    .featured p { color: var(--muted); margin-bottom: 1.25rem; }
+    @media (max-width: 768px) { .featured { grid-template-columns: 1fr; } }
+
+    /* Stat cards */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; background: var(--card); border-radius: 16px; padding: 2rem 1rem; border: 1px solid var(--border); margin-bottom: 2rem; }
+    .stat { text-align: center; }
+    .stat .num { font-size: 1.75rem; font-weight: 800; color: var(--primary); }
+    .stat .lbl { font-size: 0.85rem; color: var(--muted); }
+    @media (max-width: 640px) { .stats { grid-template-columns: 1fr; } }
+
+    /* Footer */
+    footer { background: #111827; color: #e5e7eb; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid #1f2937; }
+    footer p { font-size: 0.9rem; color: #9ca3af; }
+
+    /* Mobile menu toggle */
+    .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--card); flex-direction: column; padding: 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); gap: 0; display: none; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); border-bottom-color: transparent; width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <a href="index.html">Accueil</a>
-    <h1>welcome in me site !</h1>
-    <p>welcome in me first page .</p>
-    
-    <br><br>
-    <a href="men-ana.html">Men ana</a>
-    <br><br>
-    <img src="mon-site/termo1.webp" alt="termos" width="300">
-    <br><br>
-    <a href="produits.html">produits</a>
+  <header>
+    <div class="nav-wrap">
+      <div class="nav-top">
+        <div class="brand">ME<span>SITE</span></div>
+        <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <nav class="nav-links">
+          <a href="index.html" class="active">Accueil</a>
+          <a href="produits.html">Produits</a>
+          <a href="men-ana.html">Men Ana</a>
+          <a class="btn-wa" href="https://wa.me/212719300005?text=Salam%20bghit%20commander" target="_blank">Commander via WhatsApp</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Bienvenue sur mon site</h1>
+    <p>D&eacute;couvrez mes produits en thermos &agrave; prix imbattables. Livraison rapide, paiement &agrave; la livraison.</p>
+    <div class="cta-group">
+      <a href="produits.html" class="btn btn-primary">Voir les produits</a>
+      <a class="btn btn-outline">Plus d'infos</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="stats">
+        <div class="stat"><div class="num">2+</div><div class="lbl">Produits</div></div>
+        <div class="stat"><div class="num">24/7</div><div class="lbl">Commande WhatsApp</div></div>
+        <div class="stat"><div class="num">DH</div><div class="lbl">Prix locaux</div></div>
+      </div>
+
+      <div class="featured">
+        <div>
+          <h2>Termos Premium</h2>
+          <div class="price">200 DH</div>
+          <p>Thermos haute qualit&eacute;, garde votre boisson chaude ou froide pendant des heures. Id&eacute;al pour le bureau, l'&eacute;cole ou les voyages.</p>
+          <a href="produits.html" class="btn btn-primary">Commander</a>
+        </div>
+        <div>
+          <img src="mon-site/termo1.webp" alt="Thermos premium">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--card);">
+    <div class="container">
+      <div class="section-title">Pourquoi choisir nos produits ?</div>
+      <div class="grid">
+        <div style="text-align:center; padding:1rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🔥</div>
+          <div style="font-weight:700; color:var(--primary);">Qualit&eacute;</div>
+          <div style="font-size:0.9rem; color:var(--muted); margin-top:0.25rem;">Mat&eacute;riaux solides et durables</div>
+        </div>
+        <div style="text-align:center; padding:1rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🚚</div>
+          <div style="font-weight:700; color:var(--primary);">Livraison</div>
+          <div style="font-size:0.9rem; color:var(--muted); margin-top:0.25rem;">Partout au Maroc rapidement</div>
+        </div>
+        <div style="text-align:center; padding:1rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">💬</div>
+          <div style="font-weight:700; color:var(--primary);">WhatsApp</div>
+          <div style="font-size:0.9rem; color:var(--muted); margin-top:0.25rem;">Commandez en un clic</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Me Site Web. Tous droits r&eacute;serv&eacute;s.</p>
+  </footer>
 </body>
 </html>
-
-    
-
-
-

@@ -1,45 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-   <title>produits</title>
-   <style>
-     body { background-color: lightyellow; text-align: center; }
-     .carte { display: inline-block; background: white; padding: 15px; margin: 10px; border-radius: 10px; }
-     .prix { color: green; font-size: 20px; font-weight: bold; }
-     .btn {
-        display: inline-block;
-        background:green;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-     }
-     .menu { background: darkblue;padding: 12px; }
-     .menu a { color: white; text-decoration: none; margin: 0 15px; font-size: 18px; }
-     .menu a:hover { text-decoration: underline; }
-   </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produits | Me Site Web</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #1e3a8a;
+      --primary-hover: #1e40af;
+      --accent: #f59e0b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .nav-wrap { max-width: 1024px; margin: 0 auto; padding: 1rem 1.5rem; }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .brand { font-size: 1.25rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--muted); padding: 0.5rem 0; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); border-bottom-color: var(--primary); }
+    .btn-wa { background: #25d366; color: #fff; padding: 0.55rem 1rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 6px rgba(37,211,102,0.25); transition: transform 0.15s, background 0.2s; }
+    .btn-wa:hover { background: #1fb355; transform: translateY(-1px); }
+
+    .section { padding: 3rem 1.5rem; }
+    .container { max-width: 1024px; margin: 0 auto; }
+    .section-title { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; color: var(--primary); }
+    .section-sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+
+    .card { background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
+    .card-img { height: 200px; background: #f1f5f9; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); }
+    .card .price { font-size: 1.25rem; font-weight: 800; color: #15803d; margin-bottom: 1rem; }
+    .card .desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; flex: 1; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.25rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; transition: transform 0.15s, background 0.2s; border: none; cursor: pointer; width: 100%; justify-content: center; }
+    .btn-wa-card { background: #25d366; color: #fff; box-shadow: 0 4px 6px rgba(37,211,102,0.25); }
+    .btn-wa-card:hover { background: #1fb355; transform: translateY(-1px); }
+
+    .back { text-align: center; margin: 1.5rem 0; }
+    .back a { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+
+    footer { background: #111827; color: #e5e7eb; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid #1f2937; }
+    footer p { font-size: 0.9rem; color: #9ca3af; }
+
+    .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--card); flex-direction: column; padding: 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); gap: 0; display: none; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); width: 100%; }
+    }
+  </style>
 </head>
 <body>
-    <div class="menu">
-        <a href="produits.html">produits</a>
+  <header>
+    <div class="nav-wrap">
+      <div class="nav-top">
+        <div class="brand">ME<span>SITE</span></div>
+        <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <nav class="nav-links">
+          <a href="index.html">Accueil</a>
+          <a href="produits.html" class="active">Produits</a>
+          <a href="men-ana.html">Men Ana</a>
+          <a class="btn-wa" href="https://wa.me/212719300005?text=Salam%20bghit%20commander" target="_blank">WhatsApp</a>
+        </nav>
+      </div>
     </div>
-    <h1>produits dyali</h1>
-     
-    <div class="carte">
-        <img src="mon-site/termo1.webp" alt="termos1" width="200">
-        <h3>termossa wahda</h3>
-        <p class="prix">200 DH</p>
-        <a class="btn" href="https://wa.me/212719300005?text=bghit%20termossa%20wahda" target="_blank">commander</a>
-    </div>
+  </header>
 
-    <div class="carte">
-        <img src="mon-site/termo2.webp" alt="termos2" width="200">
-        <h3>khod jouj otalta fabour</h3>
-        <p class="prix">500 DH</p>
-        <a class="btn" href="https://wa.me/212719300005?text=bghit%20khod%20jouj%20talta%20fabour" target="_blank">commander</a>
-    </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-title">Nos Produits</div>
+      <div class="section-sub">D&eacute;couvrez notre s&election de thermos de qualit&eacute; &agrave; prix locaux.</div>
 
-    <br>
-    <a href="index.html">Rje3 l page lwla</a>
+      <div class="grid">
+        <article class="card">
+          <div class="card-img">
+            <img src="mon-site/termo1.webp" alt="Termos 1">
+          </div>
+          <div class="card-body">
+            <h3>Termos Wahda</h3>
+            <div class="price">200 DH</div>
+            <p class="desc">Thermos haute qualit&eacute;, garde votre boisson chaude ou froide pendant des heures.</p>
+            <a href="https://wa.me/212719300005?text=bghit%20termossa%20wahda" class="btn btn-wa-card" target="_blank">Commander via WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="mon-site/termo2.webp" alt="Termos 2">
+          </div>
+          <div class="card-body">
+            <h3>Khod Jouj Otalta Fabour</h3>
+            <div class="price">500 DH</div>
+            <p class="desc">Lot de deux thermos premium, parfait pour la famille ou le bureau.</p>
+            <a href="https://wa.me/212719300005?text=bghit%20khod%20jouj%20talta%20fabour" class="btn btn-wa-card" target="_blank">Commander via WhatsApp</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="back"><a href="index.html">&larr; Retour &agrave; l'accueil</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Me Site Web. Tous droits r&eacute;serv&eacute;s.</p>
+  </footer>
 </body>
 </html>
