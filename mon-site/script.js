@@ -19,10 +19,10 @@ const CONFIG = {
   heroPriceLabel: 'À partir de',
 
   // ---- OFFRES (prix en MAD). Laisse price vide "" pour masquer l'offre. ----
+  //  save = économie affichée en MAD (optionnel, sinon calculé automatiquement)
   offers: [
-    { id: 'A', name: 'Offre A', qty: 1, label: '1 thermos', price: 200, badge: 'Populaire', featured: true },
-    { id: 'B', name: 'Offre B', qty: 2, label: '2 thermoses', price: 380, badge: 'Meilleure vente' },
-    { id: 'C', name: 'Offre C', qty: 3, label: '3 thermoses', price: null, badge: '' }, // null => "Sur demande"
+    { id: 'A', name: 'Offre A', qty: 1, label: '1 thermos', price: 200, badge: '', featured: false },
+    { id: 'B', name: 'Offre B', qty: 3, label: '3 thermos (2 + 1 gratuit)', price: 500, badge: 'Meilleure offre', featured: true, save: 100 },
   ],
 
   // ---- LIVRAISON / POLITIQUE (vide = masqué) ----
@@ -122,9 +122,10 @@ window.PIXEL_IDS = window.PIXEL_IDS || {
       const price = o.price;
       const hasPrice = has(price);
       const unit = hasPrice ? money(Math.round(price / o.qty)) + ' / unité' : 'À confirmer';
-      const savings = hasPrice && o.qty > 1
-        ? Math.round((CONFIG.offers[0].price - price / o.qty) * o.qty)
-        : 0;
+      let savings = has(o.save) ? o.save : 0;
+      if (!has(o.save) && hasPrice && o.qty > 1 && CONFIG.offers[0] && has(CONFIG.offers[0].price)) {
+        savings = Math.round((CONFIG.offers[0].price - price / o.qty) * o.qty);
+      }
       const savingsHtml = savings > 0
         ? '<div class="offer-savings"><svg class="icon"><use href="#i-tag"/></svg>Vous économisez ' + money(savings) + '</div>'
         : '<div class="offer-savings"></div>';
