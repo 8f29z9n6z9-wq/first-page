@@ -220,6 +220,27 @@ footer { background: var(--color-primary); color: #fff; padding: 4rem 1rem 2rem;
 .wa-btn:hover { background: #0f766e; }
 .hidden { display: none !important; }
 
+/* ---------- Utilitaires (remplacent les styles inline) ---------- */
+.svg-sprite { position: absolute; }
+.bg-white { background: var(--color-white); }
+.text-center { text-align: center; }
+.text-sm { font-size: 0.85rem; }
+.font-bold { font-weight: 700; }
+.text-sage { color: var(--color-sage); }
+.text-white-70 { color: rgba(255, 255, 255, 0.8); }
+.link-strong { color: var(--color-secondary); font-weight: 700; }
+.mt-6 { margin-top: 1.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-4 { gap: 1rem; }
+.btn-lg { padding: 1rem 2rem; font-size: 1rem; }
+.btn-block { display: block; text-align: center; text-decoration: none; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .menu-toggle { display: block; }

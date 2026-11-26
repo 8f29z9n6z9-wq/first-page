@@ -51,7 +51,7 @@
 <body>
 
   <!-- Sprite d'icônes SVG (réutilisables via <use>) -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <svg class="svg-sprite" width="0" height="0" aria-hidden="true" focusable="false">
     <defs>
       <symbol id="i-heat" viewBox="0 0 24 24"><path d="M14 14.76V5a2 2 0 0 0-4 0v9.76a4 4 0 1 0 4 0z"/></symbol>
       <symbol id="i-cold" viewBox="0 0 24 24"><path d="M12 2v20M4.5 7l15 10M19.5 7l-15 10M12 6l-2-2M12 6l2-2M12 18l-2 2M12 18l2 2M6 9l-2.5.5M6 9l-.5-2.5M18 15l2.5-.5M18 15l.5 2.5M18 9l2.5.5M18 9l.5-2.5M6 15l-2.5-.5M6 15l-.5 2.5"/></symbol>
@@ -90,8 +90,8 @@
         <a href="#faq">FAQ</a>
         <a href="#commander">Commander</a>
       </nav>
-      <button class="nav-cta wa-btn" data-wa>Bonjour, je souhaite commander votre thermos.</button>
-      <button class="menu-toggle" aria-label="Menu"><svg class="icon icon-lg"><use href="#i-menu"/></svg></button>
+      <button type="button" class="nav-cta wa-btn" data-wa>Commander</button>
+      <button type="button" class="menu-toggle" aria-label="Menu"><svg class="icon icon-lg"><use href="#i-menu"/></svg></button>
     </div>
   </header>
 
@@ -191,7 +191,7 @@
     </div>
   </section>
 
-  <section class="section" style="background: var(--color-white);">
+  <section class="section bg-white">
     <div class="container">
       <div class="section-title">Comment fonctionne votre thermos.</div>
       <div class="section-sub">Utilisation simple en 4 étapes.</div>
@@ -242,11 +242,11 @@
       <div class="section-title">Choisissez votre offre.</div>
       <div class="section-sub">Sélectionnez la quantité adaptée à vos besoins.</div>
       <div class="offers-grid" id="offersGrid"></div>
-      <p class="section-sub" style="margin-top:1.5rem; text-align:center; font-size:0.85rem;">Les prix sont affichés en MAD. Paiement à la livraison.</p>
+      <p class="section-sub mt-6 text-center text-sm">Les prix sont affichés en MAD. Paiement à la livraison.</p>
     </div>
   </section>
 
-  <section class="section" id="avis" style="background: var(--color-white);">
+  <section class="section bg-white" id="avis">
     <div class="container">
       <div class="section-title">Ce que nos clients disent.</div>
       <div class="section-sub">Témoignages et avis.</div>
@@ -263,14 +263,14 @@
   </section>
 
   <!-- ===================== COMMANDE (Netlify Forms) ===================== -->
-  <section class="section" id="commander" style="background: var(--color-white);">
+  <section class="section bg-white" id="commander">
     <div class="container">
       <div class="section-title">Passez votre commande.</div>
       <div class="section-sub">Remplissez le formulaire, nous vous rappelons pour confirmer.</div>
 
       <form class="order-form" id="orderForm" name="commande" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
         <input type="hidden" name="form-name" value="commande">
-        <p class="hidden"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <p class="hidden"><label>Ne pas remplir : <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
         <div class="form-grid">
           <div class="form-field">
@@ -303,7 +303,7 @@
         </div>
 
         <button type="submit" class="btn-primary form-submit">Confirmer ma commande</button>
-        <p class="form-note">Paiement à la livraison. Vous pouvez aussi commander directement sur <a href="#" data-wa style="color:var(--color-secondary);font-weight:700;">WhatsApp</a>.</p>
+        <p class="form-note">Paiement à la livraison. Vous pouvez aussi commander directement sur <a href="#" data-wa class="link-strong">WhatsApp</a>.</p>
       </form>
 
       <div class="form-success" id="formSuccess">
@@ -344,7 +344,7 @@
     </div>
   </section>
 
-  <section class="section" id="faq" style="background: var(--color-white);">
+  <section class="section bg-white" id="faq">
     <div class="container">
       <div class="section-title">Questions fréquentes.</div>
       <div class="section-sub">Toutes les réponses avant de commander.</div>
@@ -357,12 +357,12 @@
       <div class="final-cta">
         <h2>Prêt à profiter de votre thermos au quotidien ?</h2>
         <p>Choisissez votre offre et passez votre commande en quelques instants.</p>
-        <div style="display:inline-flex; align-items:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap; justify-content:center;">
-          <span style="font-weight:700; color:var(--color-sage);" id="finalPrice">À partir de 200 MAD</span>
-          <span style="font-size:0.85rem; color:rgba(255,255,255,0.8);">• Paiement à la livraison</span>
-          <span style="font-size:0.85rem; color:rgba(255,255,255,0.8);">• Livraison partout au Maroc</span>
+        <div class="inline-flex items-center gap-4 mb-6 flex-wrap justify-center">
+          <span class="font-bold text-sage" id="finalPrice">À partir de 200 MAD</span>
+          <span class="text-sm text-white-70">• Paiement à la livraison</span>
+          <span class="text-sm text-white-70">• Livraison partout au Maroc</span>
         </div>
-        <a class="btn-primary wa-btn" style="padding:1rem 2rem; font-size:1rem;" href="#commander">Commander maintenant</a>
+        <a class="btn-primary wa-btn btn-lg" href="#commander">Commander maintenant</a>
       </div>
     </div>
   </section>
@@ -370,7 +370,7 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <div class="brand" style="margin-bottom:0.75rem;">
+        <div class="brand mb-3">
           <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D8EDB8"/><rect x="12" y="6" width="8" height="4" rx="1.5" fill="#142B27"/><rect x="11" y="10" width="10" height="16" rx="3" fill="#315B49"/><rect x="13" y="13" width="6" height="7" rx="1.5" fill="#D8EDB8"/></svg>
           <span class="js-brand-name">Therma</span>
         </div>
@@ -398,7 +398,7 @@
   <div class="sticky-cta">
     <div class="container row">
       <span class="price" id="stickyPrice">À partir de 200 MAD</span>
-      <a class="btn wa-btn" href="#commander" style="display:block; text-align:center; text-decoration:none;">Commander</a>
+      <a class="btn wa-btn btn-block" href="#commander">Commander</a>
     </div>
   </div>
 
@@ -406,10 +406,10 @@
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
-    <button class="lightbox-close" aria-label="Fermer"><svg class="icon icon-lg"><use href="#i-close"/></svg></button>
-    <img id="lightboxImg" src="" alt="">
+    <button type="button" class="lightbox-close" aria-label="Fermer"><svg class="icon icon-lg"><use href="#i-close"/></svg></button>
+    <img id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
   </div>
 
   <script src="script.js" defer></script>
 </body>
-</html>
+</html> 
