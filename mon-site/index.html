@@ -47,6 +47,36 @@
       ttq.load(window.PIXEL_IDS.tiktok); ttq.page();
     }
   </script>
+  <!-- Google Analytics 4 -->
+  <script>
+    if (window.PIXEL_IDS.ga) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.PIXEL_IDS.ga;
+      document.head.appendChild(gaScript);
+      gtag('js', new Date());
+      gtag('config', window.PIXEL_IDS.ga);
+    }
+  </script>
+
+  <!-- Données structurées Produit (SEO / Google Shopping) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Therma — Thermos isotherme inox",
+    "image": ["https://first-page-lms7.netlify.app/termo1.webp", "https://first-page-lms7.netlify.app/termo2.webp"],
+    "description": "Thermos isotherme inox premium. Garde les boissons chaudes 12h et froides 24h. Paiement à la livraison partout au Maroc.",
+    "brand": { "@type": "Brand", "name": "Therma" },
+    "offers": [
+      { "@type": "Offer", "priceCurrency": "MAD", "price": "200", "availability": "https://schema.org/InStock", "url": "https://first-page-lms7.netlify.app/" },
+      { "@type": "Offer", "priceCurrency": "MAD", "price": "500", "availability": "https://schema.org/InStock", "url": "https://first-page-lms7.netlify.app/", "description": "Offre 2 thermos + 1 gratuit = 3 thermos" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -84,13 +114,14 @@
         <span class="js-brand-name">Therma</span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Accueil</a>
-        <a href="produits.html">Notre produit</a>
-        <a href="#avis">Avis clients</a>
-        <a href="#faq">FAQ</a>
-        <a href="#commander">Commander</a>
+        <a href="index.html" class="active" data-i18n="nav.accueil">Accueil</a>
+        <a href="produits.html" data-i18n="nav.produit">Notre produit</a>
+        <a href="#avis" data-i18n="nav.avis">Avis clients</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="#commander" data-i18n="nav.commander">Commander</a>
       </nav>
-      <button type="button" class="nav-cta wa-btn" data-wa>Commander</button>
+      <button type="button" class="nav-cta wa-btn" data-wa data-i18n="common.commander">Commander</button>
+      <button type="button" class="lang-toggle" id="langToggle" aria-label="Changer de langue">العربية</button>
       <button type="button" class="menu-toggle" aria-label="Menu"><svg class="icon icon-lg"><use href="#i-menu"/></svg></button>
     </div>
   </header>
@@ -98,16 +129,16 @@
   <section class="hero" id="accueil">
     <div class="container hero-grid">
       <div>
-        <span class="hero-eyebrow">Votre compagnon du quotidien</span>
-        <h1>Profitez de vos boissons préférées, à la bonne température, partout avec vous.</h1>
-        <p>Découvrez notre thermos isotherme conçu pour accompagner vos journées, au travail, en déplacement ou à la maison.</p>
+        <span class="hero-eyebrow" data-i18n="hero.eyebrow">Votre compagnon du quotidien</span>
+        <h1 data-i18n="hero.h1">Profitez de vos boissons préférées, à la bonne température, partout avec vous.</h1>
+        <p data-i18n="hero.p">Découvrez notre thermos isotherme conçu pour accompagner vos journées, au travail, en déplacement ou à la maison.</p>
         <div class="price-badge">
           <span id="heroPriceLabel">À partir de</span>
           <span id="heroPrice">200 MAD</span>
         </div>
         <div class="hero-actions">
-          <a class="btn-primary wa-btn" href="#commander">Commander maintenant</a>
-          <a class="btn-outline" href="#offres">Découvrir le produit</a>
+          <a class="btn-primary wa-btn" href="#commander" data-i18n="hero.cta1">Commander maintenant</a>
+          <a class="btn-outline" href="#offres" data-i18n="hero.cta2">Découvrir le produit</a>
         </div>
         <div class="hero-benefits">
           <span class="benefit-chip"><svg class="icon"><use href="#i-heat"/></svg>Chaud 12h</span>
@@ -116,9 +147,9 @@
           <span class="benefit-chip"><svg class="icon"><use href="#i-lock"/></svg>Antifuite</span>
         </div>
         <div class="hero-trust">
-          <div class="trust-pill"><svg class="icon"><use href="#i-money"/></svg>Paiement à la livraison</div>
-          <div class="trust-pill"><svg class="icon"><use href="#i-truck"/></svg>Livraison selon votre ville</div>
-          <div class="trust-pill"><svg class="icon"><use href="#i-mail"/></svg>Service client WhatsApp</div>
+          <div class="trust-pill"><svg class="icon"><use href="#i-money"/></svg><span data-i18n="hero.trust1">Paiement à la livraison</span></div>
+          <div class="trust-pill"><svg class="icon"><use href="#i-truck"/></svg><span data-i18n="hero.trust2">Livraison selon votre ville</span></div>
+          <div class="trust-pill"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="hero.trust3">Service client WhatsApp</span></div>
         </div>
       </div>
       <div class="hero-image">
@@ -154,30 +185,36 @@
     </div>
   </section>
 
+  <section class="section" id="garantie">
+    <div class="container">
+      <div class="guarantee-strip" id="guaranteeList"></div>
+    </div>
+  </section>
+
   <section class="section" id="produit">
     <div class="container">
-      <div class="section-title">Pensé pour accompagner votre quotidien.</div>
-      <div class="section-sub">Les avantages de votre thermos isotherme.</div>
+      <div class="section-title" data-i18n="benefits.title">Pensé pour accompagner votre quotidien.</div>
+      <div class="section-sub" data-i18n="benefits.sub">Les avantages de votre thermos isotherme.</div>
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-icon"><svg class="icon icon-xl"><use href="#i-heat"/></svg></div>
-          <h3>Conservation de la chaleur</h3>
-          <p>Garde vos boissons chaudes jusqu'à 12 heures.</p>
+          <h3 data-i18n="benefits.1h">Conservation de la chaleur</h3>
+          <p data-i18n="benefits.1p">Garde vos boissons chaudes jusqu'à 12 heures.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon"><svg class="icon icon-xl"><use href="#i-cold"/></svg></div>
-          <h3>Conservation de la fraîcheur</h3>
-          <p>Garde vos boissons froides jusqu'à 24 heures.</p>
+          <h3 data-i18n="benefits.2h">Conservation de la fraîcheur</h3>
+          <p data-i18n="benefits.2p">Garde vos boissons froides jusqu'à 24 heures.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon"><svg class="icon icon-xl"><use href="#i-shield"/></svg></div>
-          <h3>Design pratique et élégant</h3>
-          <p>Acier inoxydable, finition soignée.</p>
+          <h3 data-i18n="benefits.3h">Design pratique et élégant</h3>
+          <p data-i18n="benefits.3p">Acier inoxydable, finition soignée.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon"><svg class="icon icon-xl"><use href="#i-truck"/></svg></div>
-          <h3>Facile à transporter</h3>
-          <p>Léger et adapté au quotidien.</p>
+          <h3 data-i18n="benefits.4h">Facile à transporter</h3>
+          <p data-i18n="benefits.4p">Léger et adapté au quotidien.</p>
         </div>
       </div>
     </div>
@@ -185,40 +222,40 @@
 
   <section class="section">
     <div class="container">
-      <div class="section-title">Découvrez le produit.</div>
-      <div class="section-sub">Images réelles du thermos. Cliquez pour agrandir.</div>
+      <div class="section-title" data-i18n="gallery.title">Découvrez le produit.</div>
+      <div class="section-sub" data-i18n="gallery.sub">Images réelles du thermos. Cliquez pour agrandir.</div>
       <div class="gallery-grid" id="galleryGrid"></div>
     </div>
   </section>
 
   <section class="section bg-white">
     <div class="container">
-      <div class="section-title">Comment fonctionne votre thermos.</div>
-      <div class="section-sub">Utilisation simple en 4 étapes.</div>
+      <div class="section-title" data-i18n="steps.title">Comment fonctionne votre thermos.</div>
+      <div class="section-sub" data-i18n="steps.sub">Utilisation simple en 4 étapes.</div>
       <div class="steps">
         <div class="step">
           <div class="step-img"><svg class="icon icon-lg"><use href="#i-fill"/></svg></div>
           <div class="step-num">01</div>
-          <h4>Remplissez</h4>
-          <p>Remplissez votre thermos.</p>
+          <h4 data-i18n="steps.1h">Remplissez</h4>
+          <p data-i18n="steps.1p">Remplissez votre thermos.</p>
         </div>
         <div class="step">
           <div class="step-img"><svg class="icon icon-lg"><use href="#i-lock"/></svg></div>
           <div class="step-num">02</div>
-          <h4>Fermez</h4>
-          <p>Refermez le bouchon correctement.</p>
+          <h4 data-i18n="steps.2h">Fermez</h4>
+          <p data-i18n="steps.2p">Refermez le bouchon correctement.</p>
         </div>
         <div class="step">
           <div class="step-img"><svg class="icon icon-lg"><use href="#i-truck"/></svg></div>
           <div class="step-num">03</div>
-          <h4>Emportez</h4>
-          <p>Emportez-le partout avec vous.</p>
+          <h4 data-i18n="steps.3h">Emportez</h4>
+          <p data-i18n="steps.3p">Emportez-le partout avec vous.</p>
         </div>
         <div class="step">
           <div class="step-img"><svg class="icon icon-lg"><use href="#i-cup"/></svg></div>
           <div class="step-num">04</div>
-          <h4>Dégustez</h4>
-          <p>Profitez de votre boisson.</p>
+          <h4 data-i18n="steps.4h">Dégustez</h4>
+          <p data-i18n="steps.4p">Profitez de votre boisson.</p>
         </div>
       </div>
     </div>
@@ -226,8 +263,8 @@
 
   <section class="section">
     <div class="container">
-      <div class="section-title">Caractéristiques techniques.</div>
-      <div class="section-sub">Spécifications du thermos isotherme.</div>
+      <div class="section-title" data-i18n="specs.title">Caractéristiques techniques.</div>
+      <div class="section-sub" data-i18n="specs.sub">Spécifications du thermos isotherme.</div>
       <table class="specs-table">
         <thead>
           <tr><th>Caractéristique</th><th>Détail</th></tr>
@@ -237,27 +274,41 @@
     </div>
   </section>
 
+  <section class="section bg-white" id="livraison">
+    <div class="container">
+      <div class="section-title" data-i18n="delivery.title">Livraison et délais.</div>
+      <div class="section-sub" data-i18n="delivery.sub">Prix et délais indicatifs par ville.</div>
+      <table class="specs-table">
+        <thead>
+          <tr><th data-i18n="order.city">Ville</th><th data-i18n="delivery.delay">Délai</th><th data-i18n="delivery.fee">Frais</th></tr>
+        </thead>
+        <tbody id="deliveryBody"></tbody>
+      </table>
+    </div>
+  </section>
+
   <section class="section" id="offres">
     <div class="container">
-      <div class="section-title">Choisissez votre offre.</div>
-      <div class="section-sub">Sélectionnez la quantité adaptée à vos besoins.</div>
+      <div class="section-title" data-i18n="offers.title">Choisissez votre offre.</div>
+      <div class="section-sub" data-i18n="offers.sub">Sélectionnez la quantité adaptée à vos besoins.</div>
+      <div class="urgency hidden" id="urgency" role="status"></div>
       <div class="offers-grid" id="offersGrid"></div>
-      <p class="section-sub mt-6 text-center text-sm">Les prix sont affichés en MAD. Paiement à la livraison.</p>
+      <p class="section-sub mt-6 text-center text-sm" data-i18n="offers.note">Les prix sont affichés en MAD. Paiement à la livraison.</p>
     </div>
   </section>
 
   <section class="section bg-white" id="avis">
     <div class="container">
-      <div class="section-title">Ce que nos clients disent.</div>
-      <div class="section-sub">Témoignages et avis.</div>
+      <div class="section-title" data-i18n="reviews.title">Ce que nos clients disent.</div>
+      <div class="section-sub" data-i18n="reviews.sub">Témoignages et avis.</div>
       <div class="reviews-grid" id="reviewsGrid"></div>
     </div>
   </section>
 
   <section class="section" id="videoSection">
     <div class="container">
-      <div class="section-title">Découvrez votre thermos en action.</div>
-      <div class="section-sub">Démonstration du produit.</div>
+      <div class="section-title" data-i18n="video.title">Découvrez votre thermos en action.</div>
+      <div class="section-sub" data-i18n="video.sub">Démonstration du produit.</div>
       <div class="video-wrap" id="videoWrap"></div>
     </div>
   </section>
@@ -265,60 +316,60 @@
   <!-- ===================== COMMANDE (Netlify Forms) ===================== -->
   <section class="section bg-white" id="commander">
     <div class="container">
-      <div class="section-title">Passez votre commande.</div>
-      <div class="section-sub">Remplissez le formulaire, nous vous rappelons pour confirmer.</div>
+      <div class="section-title" data-i18n="order.title">Passez votre commande.</div>
+      <div class="section-sub" data-i18n="order.sub">Remplissez le formulaire, nous vous rappelons pour confirmer.</div>
 
       <form class="order-form" id="orderForm" name="commande" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
         <input type="hidden" name="form-name" value="commande">
-        <p class="hidden"><label>Ne pas remplir : <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <p class="hidden" aria-hidden="true"><label>Ne pas remplir : <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
         <div class="form-grid">
           <div class="form-field">
-            <label for="fName">Nom complet</label>
+            <label for="fName" data-i18n="order.name">Nom complet</label>
             <input type="text" id="fName" name="fName" autocomplete="name" placeholder="Votre nom et prénom">
             <span class="field-error">Veuillez saisir votre nom complet (3 caractères minimum).</span>
           </div>
           <div class="form-field">
-            <label for="fPhone">Téléphone</label>
+            <label for="fPhone" data-i18n="order.phone">Téléphone</label>
             <input type="tel" id="fPhone" name="fPhone" inputmode="numeric" autocomplete="tel" placeholder="06XXXXXXXX ou 07XXXXXXXX">
             <span class="field-error">Numéro invalide. Format attendu : 06 ou 07 suivi de 8 chiffres.</span>
           </div>
           <div class="form-field">
-            <label for="fCity">Ville</label>
+            <label for="fCity" data-i18n="order.city">Ville</label>
             <input type="text" id="fCity" name="fCity" autocomplete="address-level2" placeholder="Votre ville">
             <span class="field-error">Veuillez indiquer votre ville.</span>
           </div>
           <div class="form-field">
-            <label for="orderOffer">Offre / Quantité</label>
+            <label for="orderOffer" data-i18n="order.offer">Offre / Quantité</label>
             <select id="orderOffer" name="orderOffer">
               <option value="">— Choisir une offre —</option>
             </select>
             <span class="field-error">Veuillez choisir une offre.</span>
           </div>
           <div class="form-field full">
-            <label for="fAddress">Adresse complète</label>
+            <label for="fAddress" data-i18n="order.address">Adresse complète</label>
             <textarea id="fAddress" name="fAddress" autocomplete="street-address" placeholder="Rue, quartier, numéro, etc."></textarea>
             <span class="field-error">Veuillez saisir votre adresse complète (5 caractères minimum).</span>
           </div>
         </div>
 
-        <button type="submit" class="btn-primary form-submit">Confirmer ma commande</button>
-        <p class="form-note">Paiement à la livraison. Vous pouvez aussi commander directement sur <a href="https://wa.me/212719300005?text=Bonjour%20je%20souhaite%20commander%20un%20thermos." target="_blank" rel="noopener" data-wa class="link-strong">WhatsApp</a>.</p>
+        <button type="submit" class="btn-primary form-submit" data-i18n="order.submit">Confirmer ma commande</button>
+        <p class="form-note"><span data-i18n="order.note">Paiement à la livraison.</span> <span data-i18n="order.note2">Vous pouvez aussi commander directement sur</span> <a href="https://wa.me/212719300005?text=Bonjour%20je%20souhaite%20commander%20un%20thermos." target="_blank" rel="noopener" data-wa class="link-strong" data-i18n="common.whatsapp">WhatsApp</a>.</p>
       </form>
 
       <div class="form-success" id="formSuccess">
         <svg class="icon"><use href="#i-check-circle"/></svg>
-        <h3>Merci pour votre commande !</h3>
-        <p>Nous vous appellerons pour confirmer votre commande et les détails de livraison.</p>
-        <a class="btn-primary wa-btn" href="https://wa.me/212719300005?text=Bonjour%20je%20souhaite%20confirmer%20ma%20commande." target="_blank" rel="noopener" id="successWa">Confirmer aussi sur WhatsApp</a>
+        <h3 data-i18n="order.successH">Merci pour votre commande !</h3>
+        <p data-i18n="order.successP">Nous vous appellerons pour confirmer votre commande et les détails de livraison.</p>
+        <a class="btn-primary wa-btn" href="https://wa.me/212719300005?text=Bonjour%20je%20souhaite%20confirmer%20ma%20commande." target="_blank" rel="noopener" id="successWa" data-i18n="order.successWa">Confirmer aussi sur WhatsApp</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="section-title">Commander en toute simplicité.</div>
-      <div class="section-sub">Passez votre commande en 4 étapes.</div>
+      <div class="section-title" data-i18n="ordersteps.title">Commander en toute simplicité.</div>
+      <div class="section-sub" data-i18n="ordersteps.sub">Passez votre commande en 4 étapes.</div>
       <div class="order-steps">
         <div class="order-step">
           <div class="order-step-num">01</div>
@@ -346,8 +397,8 @@
 
   <section class="section bg-white" id="faq">
     <div class="container">
-      <div class="section-title">Questions fréquentes.</div>
-      <div class="section-sub">Toutes les réponses avant de commander.</div>
+      <div class="section-title" data-i18n="faq.title">Questions fréquentes.</div>
+      <div class="section-sub" data-i18n="faq.sub">Toutes les réponses avant de commander.</div>
       <div class="faq" id="faqList"></div>
     </div>
   </section>
@@ -355,14 +406,14 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="final-cta">
-        <h2>Prêt à profiter de votre thermos au quotidien ?</h2>
-        <p>Choisissez votre offre et passez votre commande en quelques instants.</p>
+        <h2 data-i18n="final.h">Prêt à profiter de votre thermos au quotidien ?</h2>
+        <p data-i18n="final.p">Choisissez votre offre et passez votre commande en quelques instants.</p>
         <div class="inline-flex items-center gap-4 mb-6 flex-wrap justify-center">
           <span class="font-bold text-sage" id="finalPrice">À partir de 200 MAD</span>
           <span class="text-sm text-white-70">• Paiement à la livraison</span>
           <span class="text-sm text-white-70">• Livraison partout au Maroc</span>
         </div>
-        <a class="btn-primary wa-btn btn-lg" href="#commander">Commander maintenant</a>
+        <a class="btn-primary wa-btn btn-lg" href="#commander" data-i18n="final.cta">Commander maintenant</a>
       </div>
     </div>
   </section>
@@ -374,20 +425,31 @@
           <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D8EDB8"/><rect x="12" y="6" width="8" height="4" rx="1.5" fill="#142B27"/><rect x="11" y="10" width="10" height="16" rx="3" fill="#315B49"/><rect x="13" y="13" width="6" height="7" rx="1.5" fill="#D8EDB8"/></svg>
           <span class="js-brand-name">Therma</span>
         </div>
-        <p><span class="js-brand-tagline">Thermos isotherme inox</span> au Maroc. Paiement à la livraison, livraison rapide.</p>
+        <p data-i18n="footer.tagline">Thermos isotherme inox au Maroc. Paiement à la livraison, livraison rapide.</p>
       </div>
       <div>
-        <h4>Liens rapides</h4>
-        <p><a href="index.html">Accueil</a></p>
-        <p><a href="produits.html">Notre produit</a></p>
-        <p><a href="#avis">Avis clients</a></p>
-        <p><a href="#faq">FAQ</a></p>
-        <p><a href="#commander">Commander</a></p>
+        <h4 data-i18n="footer.links">Liens rapides</h4>
+        <p><a href="index.html" data-i18n="nav.accueil">Accueil</a></p>
+        <p><a href="produits.html" data-i18n="nav.produit">Notre produit</a></p>
+        <p><a href="#avis" data-i18n="nav.avis">Avis clients</a></p>
+        <p><a href="#faq" data-i18n="nav.faq">FAQ</a></p>
+        <p><a href="#commander" data-i18n="nav.commander">Commander</a></p>
       </div>
       <div>
-        <h4>Contact</h4>
-        <p><a href="https://wa.me/212719300005?text=Bonjour%20je%20souhaite%20plus%20d%27informations%20sur%20votre%20thermos." target="_blank" rel="noopener">WhatsApp : 0719300005</a></p>
+        <h4 data-i18n="footer.contact">Contact</h4>
+        <p><a class="js-phone" href="tel:+212719300005">0719300005</a></p>
+        <p><a class="js-email" href="mailto:contact@therma.ma">contact@therma.ma</a></p>
+        <p><span class="js-hours">Lun – Sam, 9h – 19h</span></p>
+        <p><span class="js-company">Therma (SARL)</span></p>
+        <p><span class="js-ice"></span></p>
         <p>Maroc</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.legal">Informations légales</h4>
+        <p><a href="mentions-legales.html">Mentions légales</a></p>
+        <p><a href="cgv.html">CGV</a></p>
+        <p><a href="politique-retour.html">Politique de retour et d'échange</a></p>
+        <p><a href="politique-confidentialite.html">Politique de confidentialité</a></p>
       </div>
     </div>
     <div class="container footer-bottom">

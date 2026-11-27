@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://first-page-lms7.netlify.app/sitemap.xml
